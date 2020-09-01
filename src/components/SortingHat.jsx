@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default class SortingHat extends Component {
     constructor(props) {
@@ -31,12 +32,17 @@ export default class SortingHat extends Component {
                 </header>
 
                 <h1>You are a {this.state.houses}!</h1>
-                <button> See Classmates and Staff </button>
-                <button> Learn Spells </button>
-                <button>Houses</button>
+                <Link to={'/spells'}>
+                    <Button variant="light" style={{ margin: '10px'}}>Learn Spells</Button>
+                </Link>
 
+                <Link to={'/houses'}>
+                <Button variant="light" style={{ margin: '10px'}}>Houses</Button>
+                </Link>
 
-
+                <Link to={'/characters'}>
+                    <Button variant="light" style={{ margin: '10px'}}>See Classmates and Staff</Button> 
+                </Link>
             </div>
         )
     }

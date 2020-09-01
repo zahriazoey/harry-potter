@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import SortingHat from "./components/SortingHat";
 import Houses from "./components/Houses";
 import Spells from "./components/Spells";
-import HomePage from "./HomePage";
+import HomePage from "./components/HomePage";
 import SortingHat from "./components/SortingHat";
 
 export default class App extends Component {
@@ -15,10 +15,10 @@ export default class App extends Component {
         <div className="App">
           <Switch>
             <Route path='/' exact component={HomePage} />
+            <Route path='/sortinghat' component={SortingHat} />
             <Route path="/characters" component={Character} />
             <Route path="/houses" component={Houses} />
             <Route path='/spells' component={Spells} />
-            <Route path='/sortinghat' component={SortingHat} />
           </Switch>
         </div>
       </BrowserRouter>
