@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import NavBar from './NavBar'
 
 export default class SortingHat extends Component {
     constructor(props) {
@@ -26,24 +27,27 @@ export default class SortingHat extends Component {
     }
     render() {
         return (
-            <div>
-                <header>
-                    <h1>Which House Do You Belong To? </h1>
-                </header>
+            <Fragment>
+                <NavBar />
+                <div className='sortingHat'>
 
-                <h1>You are a {this.state.houses}!</h1>
-                <Link to={'/spells'}>
-                    <Button variant="light" style={{ margin: '10px'}}>Learn Spells</Button>
-                </Link>
+                    <header>
+                        <h1 style={{ color: 'white' }}>Which House Do You Belong To? </h1>
+                    </header>
 
-                <Link to={'/houses'}>
-                <Button variant="light" style={{ margin: '10px'}}>Houses</Button>
-                </Link>
+                    <h1 style={{ color: 'white' }}>You are a {this.state.houses}!</h1>
 
-                <Link to={'/characters'}>
-                    <Button variant="light" style={{ margin: '10px'}}>See Classmates and Staff</Button> 
-                </Link>
-            </div>
+                    <Link to={'/spells'}>
+                        <Button variant="light" style={{ margin: '10px' }}>Learn Spells</Button>
+                    </Link>
+
+                    <Link to={'/houses'}>
+                        <Button variant="light" style={{ margin: '10px' }}>Learn about Other Houses</Button>
+                    </Link>
+
+                </div>
+
+            </Fragment>
         )
     }
 }
