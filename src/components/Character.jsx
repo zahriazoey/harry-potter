@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { Card, Button } from 'react-bootstrap'
-
-
 
 export default class Character extends Component {
     constructor(props) {

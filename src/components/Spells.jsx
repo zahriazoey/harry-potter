@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import { Navbar, Nav, Button } from 'react-bootstrap'
 import NavBar from './NavBar'
 
 export default class Spells extends Component {
