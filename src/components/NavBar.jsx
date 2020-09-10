@@ -4,7 +4,7 @@ import { Navbar, Nav } from "react-bootstrap";
 export default function NavBar() {
     return (
         <div>
-            <Navbar bg="light" variant="light">
+            <Navbar bg="white" variant="light">
                 <Navbar.Brand href="/">HOGWARTS</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
