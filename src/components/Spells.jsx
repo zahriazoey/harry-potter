@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import NavBar from './NavBar'
 
 export default class Spells extends Component {
     constructor(props) {
@@ -31,7 +30,7 @@ export default class Spells extends Component {
     render() {
         return (
             <Fragment>
-                <NavBar />
+              
                 <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', backgroundColor: '#282c34' }}>
                     {this.state.spells.map((spell, index) => {
                         return (

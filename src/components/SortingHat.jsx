@@ -1,13 +1,13 @@
-import React, { Component, Fragment } from 'react'
-import { Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import NavBar from './NavBar'
+import React, { Component } from 'react'
+import HOUSE from './house'
+
 
 export default class SortingHat extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            houses: ''
+            houses: '',
+            houseInfo: HOUSE
         }
     }
 
@@ -25,29 +25,58 @@ export default class SortingHat extends Component {
     componentDidMount() {
         this.sortingHat()
     }
+
     render() {
+        const { houses } = this.state
         return (
-            <Fragment>
-                <NavBar />
-                <div className='sortingHat'>
+            <div className='sortingHat'>
+                <h1>You are a {houses}!</h1>
+                {HOUSE.map((house, index) => {
+                    if (houses === house.name)
+                        return (
+                            <div key= {index} style={cardStyles}>
+                                <p>{house.info}</p>
+                                {/* <p>Colors: {house.colors}</p> */}
 
-                    <header>
-                        <h1 style={{ color: 'white' }}>Which House Do You Belong To? </h1>
-                    </header>
-
-                    <h1 style={{ color: 'white' }}>You are a {this.state.houses}!</h1>
-
-                    <Link to={'/spells'}>
-                        <Button variant="light" style={{ margin: '10px' }}>Learn Spells</Button>
-                    </Link>
-
-                    <Link to={'/houses'}>
-                        <Button variant="light" style={{ margin: '10px' }}>Learn about Other Houses</Button>
-                    </Link>
-
-                </div>
-
-            </Fragment>
+                            </div>
+                        )
+                })}
+            </div>
         )
+
     }
 }
+
+
+const cardStyles = {
+    margin: '20px auto',
+    width: '45%',
+    height: '20%',
+    padding: '15px',
+    borderRadius: '15px',
+    border: '1px solid black'
+}
+
+const gryffindor = {
+    backgroundColor: 'red',
+    color: 'gold'
+
+}
+
+const ravenclaw = {
+    backgroundColor: 'navy',
+    color: '#cd7f32'
+}
+
+const hufflepuff = {
+    backgroundColor: 'yellow',
+    color: 'black'
+
+}
+
+const slytherin = {
+    backgroundColor: 'green',
+    color: 'silver'
+
+}
+

@@ -1,11 +1,10 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import NavBar from './NavBar'
+
 
 export default function Houses() {
     return (
         <div className='houses'>
-            <NavBar />
             <h1 style={headerStyles}>Hogwarts Houses: </h1>
 
             <div style={{ display: 'flex', margin: '10px', flexWrap: 'wrap' }}>

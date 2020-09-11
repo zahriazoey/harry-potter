@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
 import image from '../plat.jpg'
+import SortingHat from './SortingHat';
 
 const styles = {
     backgroundImage: `url(${image})`,
-    backgroundRepeat  : 'no-repeat',
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top center',
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
@@ -13,21 +14,44 @@ const styles = {
 }
 
 
-export default function HomePage() {
-    return (
-        <div style={styles}>
-            <header className="App-header">
-                <h1>
-                    Welcome to Hogwarts 2.0!
-                        <p>Click Below to Get Sorted Into A House! </p>
-                </h1>
-                <Link to={'/sortinghat'}>
-                    <Button variant="light">Sorting Hat Says...</Button>
-                </Link>
+export default class HomePage extends Component {
+    constructor(props) {
+        super(props);
 
-            </header>
-        </div>
-    )
+        this.state = {
+            houseVisible: false
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+        console.log('clicked')
+        this.setState({
+            houseVisible: !this.state.houseVisible
+        })
+    }
+
+    
+    render() {
+        return (
+            <div style={styles}>
+                <header className="App-header">
+                    <h1>
+                        Welcome to Hogwarts 2.0!
+                    <p> What House Do You Belong To? </p>
+                    </h1>
+
+                    <Button variant="light" onClick={this.handleClick}>
+                        Sorting Hat Says...
+                </Button>
+                {this.state.houseVisible && <SortingHat />}
+
+                </header>
+
+            </div>
+        )
+    }
+
 }
 
 
