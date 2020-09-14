@@ -4,14 +4,14 @@ import { Button } from 'react-bootstrap'
 import image from '../plat.jpg'
 import SortingHat from './SortingHat';
 
-const styles = {
-    backgroundImage: `url(${image})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top center',
-    backgroundAttachment: 'fixed',
-    backgroundSize: 'cover',
-    overflow: 'hidden',
-}
+// const styles = {
+//     backgroundImage: `url(${image})`,
+//     backgroundRepeat: 'no-repeat',
+//     backgroundPosition: 'top center',
+//     backgroundAttachment: 'fixed',
+//     backgroundSize: 'cover',
+//     overflow: 'hidden',
+// }
 
 
 export default class HomePage extends Component {
@@ -34,7 +34,7 @@ export default class HomePage extends Component {
     
     render() {
         return (
-            <div style={styles}>
+            <div>
                 <header className="App-header">
                     <h1>
                         Welcome to Hogwarts 2.0!

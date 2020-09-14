@@ -30,7 +30,7 @@ export default class Spells extends Component {
     render() {
         return (
             <Fragment>
-              
+
                 <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', backgroundColor: '#282c34' }}>
                     {this.state.spells.map((spell, index) => {
                         return (

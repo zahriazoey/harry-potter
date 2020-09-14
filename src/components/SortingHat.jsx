@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import HOUSE from './house'
+import HouseData from './Houses'
+import { Button } from 'react-bootstrap'
 
 
 export default class SortingHat extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            houses: '',
-            houseInfo: HOUSE
+            sortingHatHouse: '',
+            houseInfo: HOUSE,
+            houseVisible: false
         }
+        this.handleClose = this.handleClose.bind(this)
     }
 
     sortingHat = () => {
@@ -17,35 +21,84 @@ export default class SortingHat extends Component {
             .then((data) => {
                 console.log(data)
                 this.setState({
-                    houses: data
+                    sortingHatHouse: data
                 })
             })
     }
+
+    handleClose() {
+        console.log('close clicked')
+        this.setState({
+            houseVisible: !this.state.houseVisible
+        })
+    }
+
+
 
     componentDidMount() {
         this.sortingHat()
     }
 
     render() {
-        const { houses } = this.state
+        const { sortingHatHouse } = this.state
         return (
             <div className='sortingHat'>
-                <h1>You are a {houses}!</h1>
-                {HOUSE.map((house, index) => {
-                    if (houses === house.name)
-                        return (
-                            <div key= {index} style={cardStyles}>
-                                <p>{house.info}</p>
-                                {/* <p>Colors: {house.colors}</p> */}
+                <h1>You are a {sortingHatHouse}!</h1>
 
-                            </div>
-                        )
+                {HOUSE.map((house, index) => {
+                    if (sortingHatHouse === house.name && house.name === 'Hufflepuff') {
+                            return (
+                                <div key={index} style={{...cardStyles,...hufflepuff}}>
+                                        <p>{house.info}</p>
+                                        <Button variant="light" onClick={this.handleClose}>Close</Button>
+                                </div>
+                            )
+                        }
+     
+                        // else if (sortingHatHouse === house.name  
+                        //     (house.name === 'Hufflepuff')  
+                        //         return (
+                        //             <div key= {index} style={{...cardStyles,...hufflepuff}}>
+
+                        //                     <p>{house.info}</p>
+                        //                     <Button variant="light" onClick={this.handleClose}>Close</Button>
+                        //             </div>
+                        //         )
+                        //     }
+                        // else if (sortingHatHouse === house.name  && house.name === 'Slytherin') {
+                        //     return (
+                        //         <div key= {index} style={{...cardStyles,...slytherin}}>
+
+                        //                 <p>{house.info}</p>
+                        //                 <Button variant="light" onClick={this.handleClose}>Close</Button>
+                        //         </div>
+                        //     )
+                        // }
+                        // else {
+                        //     return (
+                        //         <div key= {index} style={{...cardStyles,...gryffindor}}>
+
+                        //                 <p>{house.info}</p>
+                        //                 <Button variant="light" onClick={this.handleClose}>Close</Button>
+                        //         </div>
+                        //     )
+                        // }
                 })}
+
+
+
+
+
+
+
+
             </div>
         )
 
     }
 }
+
+
 
 
 const cardStyles = {
