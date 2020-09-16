@@ -46,43 +46,42 @@ export default class SortingHat extends Component {
                 <h1>You are a {sortingHatHouse}!</h1>
 
                 {HOUSE.map((house, index) => {
-                    if (sortingHatHouse === house.name && house.name === 'Hufflepuff') {
+                    if (sortingHatHouse === house.name && house.name === 'Ravenclaw') {
                             return (
-                                <div key={index} style={{...cardStyles,...hufflepuff}}>
+                                <div key={index} style={{...cardStyles,...ravenclaw}}>
                                         <p>{house.info}</p>
-                                        <Button variant="light" onClick={this.handleClose}>Close</Button>
+                
                                 </div>
                             )
                         }
      
-                        // else if (sortingHatHouse === house.name  
-                        //     (house.name === 'Hufflepuff')  
-                        //         return (
-                        //             <div key= {index} style={{...cardStyles,...hufflepuff}}>
+                        else if (sortingHatHouse === house.name  && house.name === 'Hufflepuff') {
+                                return (
+                                    <div key= {index} style={{...cardStyles,...hufflepuff}}>
 
-                        //                     <p>{house.info}</p>
-                        //                     <Button variant="light" onClick={this.handleClose}>Close</Button>
-                        //             </div>
-                        //         )
-                        //     }
-                        // else if (sortingHatHouse === house.name  && house.name === 'Slytherin') {
-                        //     return (
-                        //         <div key= {index} style={{...cardStyles,...slytherin}}>
+                                            <p>{house.info}</p>
+                                    
+                                    </div>
+                                )
+                            }
+                        else if (sortingHatHouse === house.name  && house.name === 'Slytherin') {
+                            return (
+                                <div key= {index} style={{...cardStyles,...slytherin}}>
 
-                        //                 <p>{house.info}</p>
-                        //                 <Button variant="light" onClick={this.handleClose}>Close</Button>
-                        //         </div>
-                        //     )
-                        // }
-                        // else {
-                        //     return (
-                        //         <div key= {index} style={{...cardStyles,...gryffindor}}>
+                                        <p>{house.info}</p>
+                                
+                                </div>
+                            )
+                        }
+                        else if (sortingHatHouse === house.name  && house.name === 'Gryffindor') {
+                            return (
+                                <div key= {index} style={{...cardStyles,...gryffindor}}>
 
-                        //                 <p>{house.info}</p>
-                        //                 <Button variant="light" onClick={this.handleClose}>Close</Button>
-                        //         </div>
-                        //     )
-                        // }
+                                        <p>{house.info}</p>
+                                
+                                </div>
+                            )
+                        }
                 })}
 
 
